@@ -1,0 +1,15 @@
+.tree-list {
+  max-width: 800px;
+  height: 500px;
+
+  ::ng-deep .k-table-row {
+    .k-table-td {
+      padding-block: 0;
+      height: 48px;
+    }
+  }
+
+  ::ng-deep tr.k-table-row:not([style*="height"]) {
+    background-color: red !important;
+  }
+}

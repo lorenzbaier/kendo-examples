@@ -1,0 +1,15 @@
+<h1>HELLO THERE</h1>
+
+<app-simple-tree-wrapper class="tree-list"
+                         #treeList
+                         [data]="treeData"
+                         [fetchChildren]="fetchChildrenImpl"
+                         [hasChildren]="hasChildrenImpl"
+                         [isExpanded]="isExpanded"
+                         (collapse)="handleCollapse($event)"
+                         (expand)="handleExpand($event)"
+                         [rowHeight]="rowHeight"
+                         [pageSize]="pageSize"
+                         [colDefs]="colDefs"
+>
+</app-simple-tree-wrapper>

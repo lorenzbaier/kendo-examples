@@ -1,0 +1,30 @@
+<kendo-treelist class="tree-list"
+                #treeList kendoTreeListExpandable
+                [data]="data"
+                [fetchChildren]="fetchChildren"
+                [hasChildren]="hasChildren"
+                [isExpanded]="isExpanded"
+                (collapse)="collapse.emit($event)"
+                (expand)="expand.emit($event)"
+                [rowHeight]="rowHeight"
+                [scrollable]="'virtual'"
+                [resizable]="true"
+                [sortable]="true"
+                [skip]="0"
+                [pageSize]="pageSize"
+>
+  <kendo-treelist-checkbox-column [locked]="lockable && true" [width]="80"/>
+  <ng-container *ngFor="let c of colDefs">
+    <kendo-treelist-column [locked]="lockable && !!c.locked" [field]="c.field" [width]="c.width" [sortable]="!!c.sortable"
+                           [expandable]="!!c.expandable">
+      <ng-template kendoTreeListCellTemplate let-dataItem let-rowIndex="rowIndex"
+                   let-level="level" let-isExpanded="isExpanded" let-hasChildren="hasChildren">
+        <div class="cell-container">
+        <span>
+              {{ dataItem[c.field] }}
+            </span>
+        </div>
+      </ng-template>
+    </kendo-treelist-column>
+  </ng-container>
+</kendo-treelist>
